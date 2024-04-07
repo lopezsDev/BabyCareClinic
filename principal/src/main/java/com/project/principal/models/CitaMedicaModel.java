@@ -1,28 +1,30 @@
 package com.project.principal.models;
 
 import java.sql.Date;
+import java.sql.Time;
+
 import jakarta.persistence.*;
 import lombok.Data;
-import lombok.Getter;
-import lombok.Setter;
+
 @Data
 @Entity
 @Table(name = "Citas_Medicas")
 public class CitaMedicaModel {
+
     @Id
-    @GeneratedValue(strategy=GenerationType.IDENTITY)
-    @Getter @Setter @Column(name = "id")
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Column(name = "id")
     private Long id;
 
-    @Getter @Setter @Column(name = "fecha")
+    @Column(name = "fecha")
     private Date fecha;
 
-    @Getter @Setter @Column(name = "hora")
-    private Date hora;
+    @Column(name = "hora")
+    private Time hora;
 
-    @Getter @Setter @Column(name = "pacienteId")
+    @Column(name = "pacienteId")
     private String pacienteId;
 
-    @Getter @Setter @Column(name = "medicoId")
+    @Column(name = "medicoId")
     private String medicoId;
 }
