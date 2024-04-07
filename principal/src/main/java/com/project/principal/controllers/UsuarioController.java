@@ -34,13 +34,13 @@ public class UsuarioController {
         return usuarioService.getUsuarioById(id);
     }
 
-    @PutMapping("/{id}")
+    @PutMapping("/actualizarUsuario/{id}")
     public UsuarioModel updateUsuario(@PathVariable Long id, @RequestBody UsuarioModel usuarioModel) {
         usuarioModel.setId(id);
         return usuarioService.addUsuario(usuarioModel);
     }
 
-    @DeleteMapping("/{id}")
+    @DeleteMapping("/eliminarPorId/{id}")
     public void deleteUsuario(@PathVariable Long id) {
         usuarioService.deleteUsuario(id);
     }
