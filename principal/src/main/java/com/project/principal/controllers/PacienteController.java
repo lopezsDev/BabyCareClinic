@@ -3,7 +3,7 @@ package com.project.principal.controllers;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
-import com.project.principal.models.Pacientes;
+import com.project.principal.models.PacienteModel;
 import com.project.principal.service.PacienteService;
 
 @RestController
@@ -18,19 +18,19 @@ public class PacienteController {
     }
 
     @PostMapping
-    public Pacientes addPaciente(@RequestBody Pacientes pacientes) {
-        return pacienteService.savePaciente(pacientes);
+    public PacienteModel addPaciente(@RequestBody PacienteModel pacienteModel) {
+        return pacienteService.savePaciente(pacienteModel);
     }
 
     @GetMapping("/{id}")
-    public Pacientes getPaciente(@PathVariable Long id) {
+    public PacienteModel getPaciente(@PathVariable Long id) {
         return pacienteService.getPaciente(id);
     }
 
     @PutMapping("/{id}")
-    public Pacientes updatePaciente(@PathVariable Long id, @RequestBody Pacientes pacientes) {
-        pacientes.setId(id);
-        return pacienteService.savePaciente(pacientes);
+    public PacienteModel updatePaciente(@PathVariable Long id, @RequestBody PacienteModel pacienteModel) {
+        pacienteModel.setId(id);
+        return pacienteService.savePaciente(pacienteModel);
     }
 
     @DeleteMapping("/{id}")

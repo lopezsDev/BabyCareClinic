@@ -6,7 +6,7 @@ import com.project.principal.repository.CitaMedicaRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import com.project.principal.models.CitaMedica;
+import com.project.principal.models.CitaMedicaModel;
 
 @Service
 public class CitaMedicaService {
@@ -18,17 +18,17 @@ public class CitaMedicaService {
         this.citaMedicaRepository = citaMedicaRepository;
     }
 
-    public ArrayList<CitaMedica> ListAllCitasMedicas() {
-        return (ArrayList<CitaMedica>) citaMedicaRepository.findAll();
+    public ArrayList<CitaMedicaModel> ListAllCitasMedicas() {
+        return (ArrayList<CitaMedicaModel>) citaMedicaRepository.findAll();
     }
 
-    public CitaMedica getCitaMedica(Long id) {
+    public CitaMedicaModel getCitaMedica(Long id) {
         return citaMedicaRepository.findById(id)
                 .orElseThrow(() -> new RuntimeException("No se pudo encontrar la cita médica con id: " + id));
     }
 
-    public CitaMedica saveCitaMedica(CitaMedica citaMedica) {
-        return citaMedicaRepository.save(citaMedica);
+    public CitaMedicaModel saveCitaMedica(CitaMedicaModel citaMedicaModel) {
+        return citaMedicaRepository.save(citaMedicaModel);
     }
 
     public boolean deleteCitaMedica(Long id) {

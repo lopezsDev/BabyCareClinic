@@ -6,7 +6,7 @@ import com.project.principal.repository.HistorialMedicoRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import com.project.principal.models.HistorialMedico;
+import com.project.principal.models.HistorialMedicoModel;
 
 @Service
 public class HistorialMedicoService {
@@ -18,17 +18,17 @@ public class HistorialMedicoService {
         this.historialMedicoRepository = historialMedicoRepository;
     }
 
-    public List<HistorialMedico> getHistorialesMedicos() {
+    public List<HistorialMedicoModel> getHistorialesMedicos() {
         return historialMedicoRepository.findAll();
     }
 
-    public HistorialMedico getHistorialMedico(Long id) {
+    public HistorialMedicoModel getHistorialMedico(Long id) {
         return historialMedicoRepository.findById(id)
                 .orElseThrow(() -> new RuntimeException("No se pudo encontrar el historial médico con id: " + id));
     }
 
-    public HistorialMedico saveHistorialMedico(HistorialMedico historialMedico) {
-        return historialMedicoRepository.save(historialMedico);
+    public HistorialMedicoModel saveHistorialMedico(HistorialMedicoModel historialMedicoModel) {
+        return historialMedicoRepository.save(historialMedicoModel);
     }
 
     public void deleteHistorialMedico(Long id) {

@@ -7,7 +7,7 @@ import com.project.principal.repository.UsuarioRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import com.project.principal.models.Usuarios;
+import com.project.principal.models.UsuarioModel;
 
 @Service
 public class UsuarioService {
@@ -19,13 +19,13 @@ public class UsuarioService {
         this.usuarioRepository = usuarioRepository;
     }
 
-    public List<Usuarios> getUsuarios() {
+    public List<UsuarioModel> getUsuarios() {
         return usuarioRepository.findAll();
     }
 
     
-    public Usuarios getUsuario(Long id) {
-        Optional<Usuarios> usuarios =  usuarioRepository.findById(id);
+    public UsuarioModel getUsuario(Long id) {
+        Optional<UsuarioModel> usuarios =  usuarioRepository.findById(id);
         if (usuarios.isPresent()) {
             return usuarios.get();
         } else {
@@ -34,8 +34,8 @@ public class UsuarioService {
 
     }
 
-    public Usuarios saveUsuario(Usuarios usuarios) {
-        return usuarioRepository.save(usuarios);
+    public UsuarioModel saveUsuario(UsuarioModel usuarioModel) {
+        return usuarioRepository.save(usuarioModel);
     }
 
     public void deleteUsuario(Long id) {

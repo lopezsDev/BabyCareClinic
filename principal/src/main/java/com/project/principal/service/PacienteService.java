@@ -6,7 +6,7 @@ import com.project.principal.repository.PacienteRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import com.project.principal.models.Pacientes;
+import com.project.principal.models.PacienteModel;
 
 @Service
 public class PacienteService {
@@ -18,16 +18,16 @@ public class PacienteService {
         this.pacienteRepository = pacienteRepository;
     }
 
-    public List<Pacientes> getPacientes() {
+    public List<PacienteModel> getPacientes() {
         return pacienteRepository.findAll();
     }
 
-    public Pacientes getPaciente(Long id) {
+    public PacienteModel getPaciente(Long id) {
         return pacienteRepository.findById(id)
                 .orElseThrow(() -> new RuntimeException("No se pudo encontrar el paciente con id: " + id));
     }
 
-    public Pacientes savePaciente(Pacientes pacientes) {
+    public PacienteModel savePaciente(PacienteModel pacientes) {
         return pacienteRepository.save(pacientes);
     }
 

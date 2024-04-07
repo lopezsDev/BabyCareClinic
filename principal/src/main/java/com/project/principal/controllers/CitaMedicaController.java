@@ -2,7 +2,7 @@ package com.project.principal.controllers;
 
 import org.springframework.web.bind.annotation.*;
 
-import com.project.principal.models.CitaMedica;
+import com.project.principal.models.CitaMedicaModel;
 import com.project.principal.service.CitaMedicaService;
 
 @RestController
@@ -16,17 +16,17 @@ public class CitaMedicaController {
     }
 
     @PostMapping
-    public CitaMedica addCitaMedica(@RequestBody CitaMedica citaMedica) {
-        return citaMedicaService.saveCitaMedica(citaMedica);
+    public CitaMedicaModel addCitaMedica(@RequestBody CitaMedicaModel citaMedicaModel) {
+        return citaMedicaService.saveCitaMedica(citaMedicaModel);
     }
 
     @GetMapping("/{id}")
-    public CitaMedica getCitaMedica(@PathVariable Long id) {
+    public CitaMedicaModel getCitaMedica(@PathVariable Long id) {
         return citaMedicaService.getCitaMedica(id);
     }
 
     @PutMapping("/{id}")
-    public CitaMedica updateCitaMedica(@PathVariable Long id, @RequestBody CitaMedica citaMedica) {
+    public CitaMedicaModel updateCitaMedica(@PathVariable Long id, @RequestBody CitaMedicaModel citaMedica) {
         citaMedica.setId(id);
         return citaMedicaService.saveCitaMedica(citaMedica);
     }
