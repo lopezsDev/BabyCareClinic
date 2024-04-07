@@ -19,24 +19,26 @@ public class UsuarioService {
         this.usuarioRepository = usuarioRepository;
     }
 
-    public List<UsuarioModel> getUsuarios() {
-        return usuarioRepository.findAll();
+    public UsuarioModel addUsuario(UsuarioModel usuarioModel) {
+        return usuarioRepository.save(usuarioModel);
     }
 
+    public List<UsuarioModel> getAllUsuarios() {
+        return usuarioRepository.findAll();
+    }
     
-    public UsuarioModel getUsuario(Long id) {
-        Optional<UsuarioModel> usuarios =  usuarioRepository.findById(id);
-        if (usuarios.isPresent()) {
-            return usuarios.get();
+    public UsuarioModel getUsuarioById(Long id) {
+        Optional<UsuarioModel> usuario = usuarioRepository.findById(id);
+        if (usuario.isPresent()) {
+            return usuario.get();
         } else {
             throw new RuntimeException("No se pudo encontrar el usuario " + id);
         }
 
     }
 
-    public UsuarioModel saveUsuario(UsuarioModel usuarioModel) {
-        return usuarioRepository.save(usuarioModel);
-    }
+
+
 
     public void deleteUsuario(Long id) {
         usuarioRepository.deleteById(id);
