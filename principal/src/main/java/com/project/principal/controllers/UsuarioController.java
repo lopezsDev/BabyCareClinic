@@ -19,7 +19,7 @@ public class UsuarioController {
         this.usuarioService = usuarioService;
     }
 
-    @PostMapping
+    @PostMapping("/add")
     public UsuarioModel addUsuario(@RequestBody UsuarioModel usuario) {
         return usuarioService.addUsuario(usuario);
     }
@@ -44,5 +44,10 @@ public class UsuarioController {
     public void deleteUsuario(@PathVariable Long id) {
         usuarioService.deleteUsuario(id);
     }
+
+    @GetMapping("/saludar")
+        public String saludar(){
+        return "Hola putos";
+        }
 }
 
