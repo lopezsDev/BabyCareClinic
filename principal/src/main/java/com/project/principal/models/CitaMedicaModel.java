@@ -2,29 +2,57 @@ package com.project.principal.models;
 
 import java.sql.Date;
 import java.sql.Time;
-
 import jakarta.persistence.*;
 import lombok.Data;
-
+/**
+ * Class that represents a medical appointment.
+ *
+ * @author [lopezs.dev]
+ * @version [1.0]
+ */
 @Data
 @Entity
 @Table(name = "citas_medicas")
 public class CitaMedicaModel {
 
+    /**
+     * Unique identifier for the medical appointment.
+     *
+     * @GeneratedValue(strategy = GenerationType.IDENTITY)
+     * @Column(name = "id")
+     */
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(name = "id")
     private Long id;
 
-    @Column(name = "fecha")
+    /**
+     * Date of the medical appointment.
+     *
+     * @Column(name = "fecha")
+     */
     private Date fecha;
 
-    @Column(name = "hora")
+    /**
+     * Time of the medical appointment.
+     *
+     * @Column(name = "hora")
+     */
     private Time hora;
 
-    @Column(name = "paciente_id")
+    /**
+     * Identifier of the patient associated with the appointment.
+     *
+     * @Column(name = "paciente_id")
+     */
     private String pacienteId;
 
-    @Column(name = "medicoI_id")
+    /**
+     * Identifier of the doctor associated with the appointment.
+     *
+     * @Column(name = "medicoI_id")
+     */
     private String medicoId;
+
+    // Getters and setters (optional)
+
+    // Additional methods (optional)
 }
