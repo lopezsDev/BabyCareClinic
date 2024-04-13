@@ -8,7 +8,7 @@ import lombok.Data;
 
 @Data
 @Entity
-@Table(name = "Citas_Medicas")
+@Table(name = "citas_medicas")
 public class CitaMedicaModel {
 
     @Id
@@ -22,9 +22,9 @@ public class CitaMedicaModel {
     @Column(name = "hora")
     private Time hora;
 
-    @Column(name = "pacienteId")
+    @Column(name = "paciente_id")
     private String pacienteId;
 
-    @Column(name = "medicoId")
+    @Column(name = "medicoI_id")
     private String medicoId;
 }
