@@ -5,8 +5,12 @@ import java.util.ArrayList;
 import com.project.principal.repository.CitaMedicaRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
-
 import com.project.principal.models.CitaMedicaModel;
+
+/**
+ * @author [lopezs.dev]
+ * @version [1.0]
+ */
 
 @Service
 public class CitaMedicaService {

@@ -17,42 +17,33 @@ public class CitaMedicaModel {
 
     /**
      * Unique identifier for the medical appointment.
-     *
-     * @GeneratedValue(strategy = GenerationType.IDENTITY)
-     * @Column(name = "id")
-     */
+     **/
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Column(name = "id")
     @Id
     private Long id;
 
     /**
      * Date of the medical appointment.
-     *
-     * @Column(name = "fecha")
      */
+    @Column(name = "fecha")
     private Date fecha;
 
     /**
      * Time of the medical appointment.
-     *
-     * @Column(name = "hora")
      */
+    @Column(name = "hora")
     private Time hora;
 
     /**
      * Identifier of the patient associated with the appointment.
-     *
-     * @Column(name = "paciente_id")
      */
+    @Column(name = "paciente_id")
     private String pacienteId;
 
     /**
      * Identifier of the doctor associated with the appointment.
-     *
-     * @Column(name = "medicoI_id")
      */
+    @Column(name = "medicoI_id")
     private String medicoId;
-
-    // Getters and setters (optional)
-
-    // Additional methods (optional)
 }
