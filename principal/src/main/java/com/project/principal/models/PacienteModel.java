@@ -7,7 +7,7 @@ import lombok.Data;
 
 /**
  * This class represents a patient entity.
- *  @author [lopezs.dev]
+ *  @author lopezs.dev
  *  * @version [1.0]
  */
 @Data

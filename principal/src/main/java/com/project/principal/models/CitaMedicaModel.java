@@ -7,7 +7,7 @@ import lombok.Data;
 /**
  * Class that represents a medical appointment.
  *
- * @author [lopezs.dev]
+ * @author lopezs.dev
  * @version [1.0]
  */
 @Data

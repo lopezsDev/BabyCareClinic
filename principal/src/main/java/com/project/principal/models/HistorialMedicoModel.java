@@ -4,6 +4,7 @@ import jakarta.persistence.*;
 import lombok.Data;
 /**
  * This class represents a medical history record in the system.
+ * @author lopezs.dev
  */
 @Data
 @Entity
