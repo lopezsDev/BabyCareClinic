@@ -18,21 +18,9 @@ public class HistorialMedicoService {
         this.historialMedicoRepository = historialMedicoRepository;
     }
 
-    public List<HistorialMedicoModel> getHistorialesMedicos() {
-        return historialMedicoRepository.findAll();
-    }
-
     public HistorialMedicoModel getHistorialMedico(Long id) {
         return historialMedicoRepository.findById(id)
                 .orElseThrow(() -> new RuntimeException("No se pudo encontrar el historial médico con id: " + id));
-    }
-
-    public HistorialMedicoModel saveHistorialMedico(HistorialMedicoModel historialMedicoModel) {
-        return historialMedicoRepository.save(historialMedicoModel);
-    }
-
-    public void deleteHistorialMedico(Long id) {
-        historialMedicoRepository.deleteById(id);
     }
 }
 
