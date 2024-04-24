@@ -46,4 +46,8 @@ public class CitaMedicaModel {
      */
     @Column(name = "medicoI_id")
     private String medicoId;
+
+    @ManyToOne
+    @JoinColumn(name = "paciente_id")
+    private PacienteModel paciente;
 }

@@ -2,6 +2,9 @@ package com.project.principal.models;
 
 import jakarta.persistence.*;
 import lombok.Data;
+
+import java.util.List;
+
 /**
  * This class represents an Usuario (User) entity within the application.
  * It maps to the `usuarios` table in the database and holds essential user information.
@@ -46,5 +49,11 @@ public class UsuarioModel {
      * The user's role within the application (e.g., ADMINISTRADOR, USUARIO).
      */
     private String rol;
+
+    @OneToMany(mappedBy = "medico")
+    private List<PacienteModel> paciente;
+
+    @OneToMany(mappedBy = "medico")
+    private List<HistorialMedicoModel> historialesMedicos;
 }
 

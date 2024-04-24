@@ -42,4 +42,8 @@ public class HistorialMedicoModel {
      */
     @Column(name = "tratamiento")
     private String tratamiento;
+
+    @ManyToOne
+    @JoinColumn(name = "medico_id")
+    private UsuarioModel medico;
 }

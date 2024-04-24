@@ -1,6 +1,7 @@
 package com.project.principal.models;
 
 import java.sql.Date;
+import java.util.List;
 
 import jakarta.persistence.*;
 import lombok.Data;
@@ -58,4 +59,11 @@ public class PacienteModel {
      */
     @Column(name = "numeroIdentificacion")
     private String numeroIdentificacion;
+
+    @ManyToMany
+    @JoinColumn(name = "medico_id")
+    private UsuarioModel medico;
+
+    @OneToMany(mappedBy = "paciente")
+    private List<CitaMedicaModel> citasMedicas;
 }
