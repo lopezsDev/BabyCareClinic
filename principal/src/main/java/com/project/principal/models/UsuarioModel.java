@@ -28,26 +28,31 @@ public class UsuarioModel {
     /**
      * The user's first name.
      */
+    @Column(name = "nombre")
     private String nombre;
 
     /**
      * The user's last name.
      */
+    @Column(name = "apellido")
     private String apellido;
 
     /**
      * The user's email address.
      */
+    @Column(name = "email")
     private String email;
 
     /**
      * The user's password (hashed and secured).
      */
+    @Column(name = "password")
     private String password;
 
     /**
      * The user's role within the application (e.g., ADMINISTRADOR, USUARIO).
      */
+    @Column(name = "rol")
     private String rol;
 
     @OneToMany(mappedBy = "medico")
