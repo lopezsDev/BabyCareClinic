@@ -55,10 +55,11 @@ public class UsuarioModel {
     @Column(name = "rol")
     private String rol;
 
-    @OneToMany(mappedBy = "medico")
-    private List<PacienteModel> paciente;
+    @OneToMany(mappedBy = "medico_id")
+    private List<HistorialMedicoModel> historialMedico;
 
-    @OneToMany(mappedBy = "medico")
-    private List<HistorialMedicoModel> historialesMedicos;
+    @OneToMany(mappedBy = "medico_id")
+    private List<CitaMedicaModel> citaMedica;
+
 }
 

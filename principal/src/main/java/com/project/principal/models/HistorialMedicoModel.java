@@ -22,28 +22,22 @@ public class HistorialMedicoModel {
     /**
      * Identifier of the patient associated with this medical history record.
      */
-    @Column(name = "pacienteId")
-    private String pacienteId;
+    @ManyToOne
+    @JoinColumn(name = "paciente_id")
+    private PacienteModel paciente_id;
 
     /**
      * Identifier of the doctor associated with this medical history record.
      */
-    @Column(name = "medicoId")
-    private String medicoId;
+    @ManyToOne
+    @JoinColumn(name = "medico_id")
+    private UsuarioModel medico_id;
 
-    /**
-     * Diagnosis for the patient's condition.
-     */
+
     @Column(name = "diagnostico")
     private String diagnostico;
 
-    /**
-     * Treatment plan prescribed for the patient.
-     */
     @Column(name = "tratamiento")
     private String tratamiento;
 
-    @ManyToOne
-    @JoinColumn(name = "medico_id")
-    private UsuarioModel medico;
 }

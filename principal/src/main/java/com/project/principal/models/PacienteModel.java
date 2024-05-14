@@ -60,10 +60,10 @@ public class PacienteModel {
     @Column(name = "numeroIdentificacion")
     private String numeroIdentificacion;
 
-    @ManyToMany
-    @JoinColumn(name = "medico_id")
-    private UsuarioModel medico;
 
-    @OneToMany(mappedBy = "paciente")
+    @OneToMany(mappedBy = "paciente_id")
+    private List<HistorialMedicoModel> historialesMedicos;
+
+    @OneToMany(mappedBy = "paciente_id")
     private List<CitaMedicaModel> citasMedicas;
 }

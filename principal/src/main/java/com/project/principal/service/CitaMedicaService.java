@@ -1,7 +1,5 @@
 package com.project.principal.service;
 
-import java.util.ArrayList;
-
 import com.project.principal.repository.CitaMedicaRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -20,10 +18,6 @@ public class CitaMedicaService {
 
     public CitaMedicaService(CitaMedicaRepository citaMedicaRepository) {
         this.citaMedicaRepository = citaMedicaRepository;
-    }
-
-    public ArrayList<CitaMedicaModel> ListAllCitasMedicas() {
-        return (ArrayList<CitaMedicaModel>) citaMedicaRepository.findAll();
     }
 
     public CitaMedicaModel getCitaMedica(Long id) {

@@ -35,19 +35,12 @@ public class CitaMedicaModel {
     @Column(name = "hora")
     private Time hora;
 
-    /**
-     * Identifier of the patient associated with the appointment.
-     */
-    @Column(name = "paciente_id")
-    private String pacienteId;
-
-    /**
-     * Identifier of the doctor associated with the appointment.
-     */
-    @Column(name = "medicoI_id")
-    private String medicoId;
+    @ManyToOne
+    @JoinColumn(name = "medico_id")
+    private UsuarioModel medico_id;
 
     @ManyToOne
     @JoinColumn(name = "paciente_id")
-    private PacienteModel paciente;
+    private PacienteModel paciente_id;
+
 }
