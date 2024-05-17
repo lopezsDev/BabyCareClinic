@@ -18,6 +18,8 @@ public class HistorialMedicoController {
     @GetMapping("/informes/{pacienteId}")
     public String getInformeMedico(@PathVariable Long pacienteId) {
 
+
+
         return "Informe médico para el paciente con ID: " + pacienteId;
     }
 

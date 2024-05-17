@@ -2,6 +2,7 @@ package com.project.principal.service;
 
 import java.util.List;
 
+import com.project.principal.models.PacienteModel;
 import com.project.principal.repository.HistorialMedicoRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -18,7 +19,11 @@ public class HistorialMedicoService {
         this.historialMedicoRepository = historialMedicoRepository;
     }
 
-    public HistorialMedicoModel getHistorialMedico(Long id) {
+    public HistorialMedicoModel getInformeMedico(Long id) {
+
+        final PacienteService pacienteService = null;
+        PacienteModel pacienteModel = pacienteService.getPaciente(id);
+
         return historialMedicoRepository.findById(id)
                 .orElseThrow(() -> new RuntimeException("No se pudo encontrar el historial médico con id: " + id));
     }
