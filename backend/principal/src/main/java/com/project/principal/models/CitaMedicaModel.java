@@ -1,9 +1,11 @@
 package com.project.principal.models;
 
-import java.sql.Date;
-import java.sql.Time;
 import jakarta.persistence.*;
 import lombok.Data;
+
+import java.sql.Date;
+import java.sql.Time;
+
 /**
  * Class that represents a medical appointment.
  *
