@@ -38,11 +38,11 @@ public class CitaMedicaModel {
     private Time hora;
 
     @ManyToOne
-    @JoinColumn(name = "medico_id")
-    private UsuarioModel medico_id;
-
-    @ManyToOne
     @JoinColumn(name = "paciente_id")
     private PacienteModel paciente_id;
+
+    @ManyToOne
+    @JoinColumn(name = "medico_id")
+    private UsuarioModel medico_id;
 
 }

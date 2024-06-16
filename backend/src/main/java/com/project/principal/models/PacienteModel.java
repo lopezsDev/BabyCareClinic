@@ -57,7 +57,7 @@ public class PacienteModel {
     /**
      * The patient's identification number.
      */
-    @Column(name = "numeroIdentificacion")
+    @Column(name = "numero_identificacion")
     private String numeroIdentificacion;
 
 
