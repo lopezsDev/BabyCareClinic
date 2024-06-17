@@ -23,6 +23,7 @@ public class UsuarioModel {
      */
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Column(name = "id_usuario")
     private Long id;
 
     /**
@@ -52,8 +53,12 @@ public class UsuarioModel {
     /**
      * The user's role within the application (e.g., ADMINISTRADOR, USUARIO).
      */
+    @ManyToMany(fetch = FetchType.EAGER, cascade = CascadeType.ALL)
+    @JoinTable(name = "usuario_roles",
+            joinColumns = @JoinColumn(name = "usuario_id", referencedColumnName = "id_usuario"),
+            inverseJoinColumns = @JoinColumn(name = "rol_id", referencedColumnName = "id_rol"))
     @Column(name = "rol")
-    private String rol;
+    private List<RolModel> rol;
 
     @OneToMany(mappedBy = "medico_id")
     private List<HistorialMedicoModel> historialMedico;
