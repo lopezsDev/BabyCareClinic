@@ -48,10 +48,10 @@ public class JwtTokenProvider {
      * Metodo para validar el toker
      */
 
-    public String validateToken(String token) {
+    public Boolean validateToken(String token) {
         try {
             Jwts.parser().setSigningKey(ConstantesSeguridad.JWT_FIRMA).parseClaimsJws(token);
-            return token;
+            return true;
         }catch (Exception e){
             throw new AuthenticationCredentialsNotFoundException("JWT ha expirado o es incorrecto");
         }
