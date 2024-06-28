@@ -11,7 +11,7 @@ public class AuthRespuestaDTO {
     private String accesToken;
     private String tokenType = "Bearer ";
 
-    public AuthRespuestaDTO() {
+    public AuthRespuestaDTO(String token) {
         this.accesToken = accesToken;
     }
 }

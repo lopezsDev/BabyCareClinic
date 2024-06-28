@@ -1,58 +1,54 @@
 package com.project.principal.security;
 
-
 import io.jsonwebtoken.Claims;
-import io.jsonwebtoken.JwtException;
 import io.jsonwebtoken.Jwts;
 import io.jsonwebtoken.SignatureAlgorithm;
+import io.jsonwebtoken.security.Keys;
+import jakarta.annotation.PostConstruct;
 import org.springframework.security.authentication.AuthenticationCredentialsNotFoundException;
 import org.springframework.security.core.Authentication;
 import org.springframework.stereotype.Component;
+import java.security.Key;
 import java.util.Date;
 
 @Component
-public class JwtTokenProvider {
+public class JwtTokenProvider{
 
-    /**
-     * Método para crear un token por medio de la auntenticacion
-     * */
+    private Key key;
+
+    @PostConstruct
+    public void init() {
+        this.key = Keys.secretKeyFor(SignatureAlgorithm.HS512);
+    }
+
     public String generateToken(Authentication authentication) {
         String username = authentication.getName();
         Date now = new Date();
         Date expiration = new Date(now.getTime() + ConstantesSeguridad.JWT_EXPIRATION_TOKEN);
 
-
-        //Esta linea genera el token
-        String token = Jwts.builder()
+        return Jwts.builder()
                 .setSubject(username)
-                .setIssuedAt(new Date())
+                .setIssuedAt(now)
                 .setExpiration(expiration)
-                .signWith(SignatureAlgorithm.HS512, ConstantesSeguridad.JWT_FIRMA)
+                .signWith(key)
                 .compact();
-        return token;
     }
 
-    /**
-     * Este metodo extrae un username a partir de un token
-     */
-
     public String getUserFromToken(String token) {
-        Claims claims = Jwts.parser()
-                .setSigningKey(ConstantesSeguridad.JWT_FIRMA)
+        Claims claims = Jwts.parserBuilder()
+                .setSigningKey(key)
+                .build()
                 .parseClaimsJws(token)
                 .getBody();
+
         return claims.getSubject();
     }
 
-    /**
-     * Metodo para validar el toker
-     */
-
     public Boolean validateToken(String token) {
         try {
-            Jwts.parser().setSigningKey(ConstantesSeguridad.JWT_FIRMA).parseClaimsJws(token);
+            Jwts.parserBuilder().setSigningKey(key).build().parseClaimsJws(token);
             return true;
-        }catch (Exception e){
+        } catch (Exception e) {
             throw new AuthenticationCredentialsNotFoundException("JWT ha expirado o es incorrecto");
         }
     }
