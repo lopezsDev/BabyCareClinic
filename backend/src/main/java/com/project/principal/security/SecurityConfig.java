@@ -2,6 +2,7 @@ package com.project.principal.security;
 
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
+import org.springframework.http.HttpMethod;
 import org.springframework.security.authentication.AuthenticationManager;
 import org.springframework.security.config.annotation.authentication.configuration.AuthenticationConfiguration;
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
@@ -62,6 +63,10 @@ public class SecurityConfig {
                 .and()
                 .authorizeHttpRequests()//Toda peticion HTTP debe ser autorizada
                 .requestMatchers("/api/auth/**").permitAll()
+                .requestMatchers(HttpMethod.POST, "/api/citas/create").hasAnyAuthority("ADMINISTRATIVO", "MEDICO")
+                .requestMatchers(HttpMethod.GET, "/api/citas/list").hasAnyAuthority("ADMINISTRATIVO", "MEDICO", "PERSONAL MEDICO")
+                .requestMatchers(HttpMethod.DELETE, "/api/citas/list").hasAnyAuthority("ADMINISTRATIVO", "MEDICO")
+                .requestMatchers(HttpMethod.PUT, "/api/citas/list").hasAnyAuthority("ADMINISTRATIVO", "MEDICO")
                 .anyRequest().authenticated()
                 .and()
                 .httpBasic();
