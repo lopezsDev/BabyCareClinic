@@ -22,15 +22,15 @@ public class HistorialMedicoModel {
     /**
      * Identifier of the patient associated with this medical history record.
      */
-    @ManyToOne
-    @JoinColumn(name = "paciente_id")
+    @OneToOne
+    @JoinColumn(name = "paciente_id", nullable = false, referencedColumnName = "id")
     private PacienteModel paciente_id;
 
     /**
      * Identifier of the doctor associated with this medical history record.
      */
     @ManyToOne
-    @JoinColumn(name = "medico_id")
+    @JoinColumn(name = "medico_id", nullable = false, referencedColumnName = "id_usuario")
     private UsuarioModel medico_id;
 
 

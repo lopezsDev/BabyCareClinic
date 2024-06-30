@@ -60,10 +60,10 @@ public class UsuarioModel {
     @Column(name = "rol")
     private List<RolModel> rol;
 
-    @OneToMany(mappedBy = "medico_id")
+    @OneToMany(mappedBy = "medico_id", fetch = FetchType.EAGER, cascade = CascadeType.ALL)
     private List<HistorialMedicoModel> historialMedico;
 
-    @OneToMany(mappedBy = "medico_id")
+    @OneToMany(mappedBy = "medico_id", fetch = FetchType.EAGER, cascade = CascadeType.ALL)
     private List<CitaMedicaModel> citaMedica;
 
 }

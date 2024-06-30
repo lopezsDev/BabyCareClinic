@@ -21,7 +21,6 @@ public class PacienteModel {
      */
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(name = "id")
     private Long id;
 
     /**
@@ -39,7 +38,7 @@ public class PacienteModel {
     /**
      * The patient's date of birth.
      */
-    @Column(name = "fechaNacimiento")
+    @Column(name = "fecha_Nacimiento")
     private Date fechaNacimiento;
 
     /**
@@ -61,9 +60,9 @@ public class PacienteModel {
     private String numeroIdentificacion;
 
 
-    @OneToMany(mappedBy = "paciente_id")
-    private List<HistorialMedicoModel> historialesMedicos;
+    @OneToOne(mappedBy = "paciente_id", cascade = CascadeType.ALL, fetch = FetchType.LAZY)
+    private HistorialMedicoModel historialMedico;
 
-    @OneToMany(mappedBy = "paciente_id")
+    @OneToMany(mappedBy = "paciente_id", cascade = CascadeType.ALL, fetch = FetchType.LAZY)
     private List<CitaMedicaModel> citasMedicas;
 }

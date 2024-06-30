@@ -42,7 +42,7 @@ public class CitaMedicaModel {
     private PacienteModel paciente_id;
 
     @ManyToOne
-    @JoinColumn(name = "medico_id")
+    @JoinColumn(name = "medico_id", nullable = false, referencedColumnName = "id_usuario")
     private UsuarioModel medico_id;
 
 }
