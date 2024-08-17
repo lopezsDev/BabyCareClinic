@@ -63,6 +63,16 @@ public class SecurityConfig {
                 .and()
                 .authorizeHttpRequests()//Toda peticion HTTP debe ser autorizada
                 .requestMatchers("/api/auth/**").permitAll()
+
+                // Permitir acceso a la documentación de Swagger
+                .requestMatchers("/v3/api-docs/**").permitAll()
+                .requestMatchers("/swagger-ui/**").permitAll()
+                .requestMatchers("/swagger-ui.html").permitAll()
+                .requestMatchers("/api/login").permitAll()
+                .requestMatchers("/api/registerMedico").permitAll()
+                .requestMatchers("/api/registerAdmin").permitAll()
+                .requestMatchers("/api/registerPersonalMed").permitAll()
+
                 .requestMatchers(HttpMethod.POST, "/api/citas/create").hasAnyAuthority("ADMINISTRATIVO", "MEDICO")
                 .requestMatchers(HttpMethod.GET, "/api/citas/list").hasAnyAuthority("ADMINISTRATIVO", "MEDICO", "PERSONAL MEDICO")
                 .requestMatchers(HttpMethod.DELETE, "/api/citas/list").hasAnyAuthority("ADMINISTRATIVO", "MEDICO")
