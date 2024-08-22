@@ -7,7 +7,7 @@ import com.project.principal.models.RolModel;
 import com.project.principal.models.UsuarioModel;
 import com.project.principal.repository.RolesRepository;
 import com.project.principal.repository.UsuarioRepository;
-import com.project.principal.security.JwtTokenProvider;
+import com.project.principal.security.TokenService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -35,10 +35,10 @@ public class AuthController {
 
     private UsuarioRepository usuarioRepository;
 
-    private JwtTokenProvider jwtTokenProvider;
+    private TokenService jwtTokenProvider;
 
     @Autowired
-    public AuthController(AuthenticationManager authenticationManager, PasswordEncoder passwordEncoder, RolesRepository rolesRepository, UsuarioRepository usuarioRepository, JwtTokenProvider jwtTokenProvider) {
+    public AuthController(AuthenticationManager authenticationManager, PasswordEncoder passwordEncoder, RolesRepository rolesRepository, UsuarioRepository usuarioRepository, TokenService jwtTokenProvider) {
         this.authenticationManager = authenticationManager;
         this.passwordEncoder = passwordEncoder;
         this.rolesRepository = rolesRepository;
@@ -114,7 +114,7 @@ public class AuthController {
         Authentication authentication = authenticationManager.authenticate(new UsernamePasswordAuthenticationToken(
                 loginDTO.getUsername(), loginDTO.getPassword()));
         SecurityContextHolder.getContext().setAuthentication(authentication);
-        String token = jwtTokenProvider.generateToken(authentication);
+        String token = jwtTokenProvider.generarToken(authentication);
         return new ResponseEntity<>(new AuthRespuestaDTO(token), HttpStatus.OK);
     }
 
