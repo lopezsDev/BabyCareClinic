@@ -43,7 +43,7 @@ cd BabyCareClinic
 **Samir López**
 
 - 📧 Email: [lopezs.dev@gmail.com](mailto:lopezs.dev@gmail.com)
-- 🔗 LinkedIn: [Samir López](https://www.linkedin.com/in/samir-lopez-906437268)
+- 🔗 LinkedIn: [Samir López](www.linkedin.com/in/lopezs-dev)
 
 Estoy abierto a sugerencias sobre la aplicación y agradezco cualquier issue que deseen reportar para mejorar el proyecto.
 
